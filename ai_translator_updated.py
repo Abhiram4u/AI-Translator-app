@@ -15,7 +15,7 @@ if not API_KEY:
 else:
     genai.configure(api_key=API_KEY)
 
-# Streamlit UI setup
+
 st.set_page_config(page_title="AI Translator", layout="wide")
 st.markdown("<h1 style='text-align: center;'>AI Translator</h1>", unsafe_allow_html=True)
 
@@ -23,7 +23,7 @@ st.info(
     "⚠️ **Note**: This translator might not always be 100% accurate. Sometimes, the translation may contain mistakes. If the translation seems off, please try re-translating. Thank you for understanding!"
 )
 
-# Supported languages
+
 languages = {
     "English": "English",
     "French": "French",
@@ -47,7 +47,7 @@ languages = {
     "Thai": "Thai"
 }
 
-# Layout for better UI
+
 col1, col2 = st.columns([2, 1])
 
 with col1:
@@ -58,16 +58,16 @@ with col1:
     if st.button("Translate"):
         if text_input:
             with st.spinner("Translating... "):
-                # AI Translation Prompt
+               
                 prompt = f"Translate this text to {target_language}. Input can be Romanized (typed in English letters) or in the original script. \n\nInput: {text_input}"
                 model = genai.GenerativeModel("gemini-pro")
                 response = model.generate_content(prompt)
                 translated_text = response.text
 
-                # Display translation
+
                 st.success(translated_text)
 
-                # Generate Speech Output
+                #for Speech Output
                 with st.spinner("Generating Audio 🎶"):
                     language_code = languages.get(target_language, None)
                     if language_code is None:
@@ -75,7 +75,7 @@ with col1:
 
                         language_code = "en"  # Default to English if the language is not found
                     #else:
-                        #st.warning("⚠️ Please enter text to translate.")
+                        #st.warning(" Please enter text to translate.")
 
                     try:
                         # Generate speech output using gTTS
