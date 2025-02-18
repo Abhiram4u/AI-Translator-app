@@ -4,8 +4,9 @@ import tempfile
 from gtts import gTTS
 import tempfile
 import os
+API_KEY = os.getenv("API_KEY")  # for  Secure api keys
+# this api key is securely deployed in streamlit community cloud, it will automaticaly inject key to the environment
 
-API_KEY = os.environ.get("GEMINI_API_KEY")
 
 
 
