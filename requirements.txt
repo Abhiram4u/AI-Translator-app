@@ -1,0 +1,10 @@
+google-generativeai
+streamlit
+gtts
+google-cloud
+pydub
+pyttsx3
+google-api-python-client
+google-auth
+google-auth-httplib2
+google-auth-oauthlib
